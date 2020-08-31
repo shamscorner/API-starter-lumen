@@ -11,16 +11,19 @@ jobs:
     runs-on: ubuntu-latest
 
     services:
-      mysql:
-        image: mysql
-        ports:
-          - 3306:3306
+      postgres:
+        image: postgres
         env:
-          MYSQL_USER: user
-          MYSQL_PASSWORD: password
-          MYSQL_DATABASE: test
-          MYSQL_ROOT_PASSWORD: password
-        options: --health-cmd="mysqladmin ping" --health-interval=5s --health-timeout=2s --health-retries=3
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: secret
+          POSTGRES_DB: db_test
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
 
     steps:
       - uses: actions/checkout@v2
@@ -46,12 +49,12 @@ jobs:
         run: |
           php artisan migrate:fresh
         env:
-          PORT: ${{ job.services.mysql.ports[3306] }}
+          PORT: ${{ job.services.postgres.ports[3306] }}
 
       - name: Execute tests (Unit and Feature tests) via PHPUnit (PEST)
         run: ./vendor/bin/pest
         env:
-          PORT: ${{ job.services.mysql.ports[3306] }}
+          PORT: ${{ job.services.postgres.ports[3306] }}
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
