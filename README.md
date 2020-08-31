@@ -16,22 +16,22 @@ Documentation for the framework can be found on the [Lumen website](https://lume
 **Step 1** - Clone this project into a directory
 
 ```
-https://github.com/Unnuio/LinkFinderLumen.git
+https://github.com/shamscorner/API-starter-lumen.git
 ```
 
 **Step 2** - Clone the **Laradock** module in that same directory
 
 ```
-git clone https://github.com/shamscorner/LinkFinder-Laradock.git
+https://github.com/laradock/laradock.git
 ```
 
 So the directory structure will be something similar like this,
 
--   LinkFinderProjects
+-   SomeDirectory
     -   laradock
-    -   LinkFinderLumen
+    -   API-base-lumen
 
-**Step 3** - Copy the `env-example` file to `.env` in laradock
+**Step 3** - Copy the `env-example` file to `.env` in laradock directory
 
 ```
 cd laradock
@@ -41,27 +41,25 @@ cp env-example .env
 **Step 4** - Change compose path separator if the operating system is Windows in `.env` file inside the `laradock` folder
 
 ```
-# Change the separator from : to ; on Windows
+# Change the separator from : to ; on Windows (Only for Windows Users)
 COMPOSE_PATH_SEPARATOR=;
 ```
 
 **Step 5** - Add the Site URL to the `host` file in the local machine
 
 ```
-127.0.0.1	linkfinder-lumen.test
+127.0.0.1	api-base-lumen.test
 ```
 
 **Step 6** - Run the `Docker` containers
 
 ```
-make start
-or,
 docker-compose up -d nginx mysql phpmyadmin
 ```
 
 **Step 7** - Create database
 
-Visit `http://localhost:8081` and login with the following credentials,
+Visit `http://localhost:8080` and login with the following credentials,
 
 ```
 server: mysql
@@ -72,15 +70,13 @@ password: root
 **Step 8** - Execute the workspace container
 
 ```
-make workdir
-or,
 docker-compose exec workspace bash
 ```
 
 **Step 9** - Copy the `.env.example` file to `.env` in
 
 ```
-cd LinkFinderLumen
+cd API-base-lumen
 cp .env.example .env
 ```
 
@@ -109,7 +105,7 @@ Happy Coding :)
 **Step 1** - Hit this endpoint from Postman with the following body (replace with your own domain)
 
 ```
-http://linkfinder-lumen.test/register
+http://api-base-lumen.test/register
 ```
 
 body,
@@ -138,7 +134,7 @@ response (token will be different),
 **Step 2** - Hit the next link as well (replace with your own domain)
 
 ```
-http://linkfinder-lumen.test/v1/oauth/token
+http://api-base-lumen.test/v1/oauth/token
 ```
 
 body (replace with your own client id and secret),
@@ -168,20 +164,10 @@ response (token will be different),
 If everything works, then you are good to go.
 
 ## To setup the development environment
+
 ```
 php artisan dev:setup
 ```
-
-## Some Make Commands
-
--   `make help` - list of all available commands
--   `make start` - Start docker containers (docker-compose up -d nginx mysql phpmyadmin link_finder_nuxt)
--   `make stop` - Stop docker containers (docker-compose stop)
--   `make down` - Down docker containers (docker-compose down)
--   `make rebuild` - Rebuild the entire docker containers (docker-compose up -d --build nginx mysql phpmyadmin link_finder_nuxt)
--   `make workdir` - Execute the workspace container (docker-compose exec workspace bash)
--   `make db` - Execute the mysql container (docker-compose exec mysql bash)
--   `make nuxt-app` - Execute the nuxt app container (docker-compose exec link_finder_nuxt bash)
 
 ## License
 
