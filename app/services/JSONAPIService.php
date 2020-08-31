@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace app\Services;
 
 use Illuminate\Support\Str;
 use Spatie\QueryBuilder\QueryBuilder;
