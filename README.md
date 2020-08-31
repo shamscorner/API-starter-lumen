@@ -7,8 +7,6 @@
 
 Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
 
-![Project Introduction](https://github.com/shamscorner/images/blob/master/lumen-api-intro.png)
-
 ## Official Documentation
 
 Documentation for the framework can be found on the [Lumen website](https://lumen.laravel.com/docs).
@@ -16,6 +14,8 @@ Documentation for the framework can be found on the [Lumen website](https://lume
 ## Introduction
 
 Lumen based API starter project with user login and registration endpoints, tests, migrations, etc. It has `JSON API specification` supports with the `Test-Driven Development` initials. This project can be used as a starter kit which is in `Lumen 7` for now.
+
+![Project Introduction](https://github.com/shamscorner/images/blob/master/lumen-api-intro.png)
 
 **Follow the below instructions if you want to setup this project with Laradock, otherwise setup as you used to.**
 
