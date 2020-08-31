@@ -2,9 +2,9 @@ name: API Base Push Test
 
 on:
   push:
-    branches: [master, db-pgsql]
+    branches: [master]
   pull_request:
-    branches: [master, db-pgsql]
+    branches: [master]
 
 jobs:
   lumen-api-tests:
