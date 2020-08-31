@@ -29,7 +29,7 @@ So the directory structure will be something similar like this,
 
 -   SomeDirectory
     -   laradock
-    -   API-base-lumen
+    -   API-starter-lumen
 
 **Step 3** - Copy the `env-example` file to `.env` in laradock directory
 
@@ -48,7 +48,7 @@ COMPOSE_PATH_SEPARATOR=;
 **Step 5** - Add the Site URL to the `host` file in the local machine
 
 ```
-127.0.0.1	api-base-lumen.test
+127.0.0.1	api-starter-lumen.test
 ```
 
 **Step 6** - Run the `Docker` containers
@@ -76,7 +76,7 @@ docker-compose exec workspace bash
 **Step 9** - Copy the `.env.example` file to `.env` in
 
 ```
-cd API-base-lumen
+cd API-starter-lumen
 cp .env.example .env
 ```
 
@@ -105,7 +105,7 @@ Happy Coding :)
 **Step 1** - Hit this endpoint from Postman with the following body (replace with your own domain)
 
 ```
-http://api-base-lumen.test/register
+http://api-starter-lumen.test/register
 ```
 
 body,
@@ -134,7 +134,7 @@ response (token will be different),
 **Step 2** - Hit the next link as well (replace with your own domain)
 
 ```
-http://api-base-lumen.test/v1/oauth/token
+http://api-starter-lumen.test/v1/oauth/token
 ```
 
 body (replace with your own client id and secret),
