@@ -63,13 +63,43 @@ POSTGRES_DB=apistarter
 127.0.0.1	api-starter-lumen.test
 ```
 
-**Step 7** - Run the `Docker` containers
+**Step 7** - Setup `nginx` server
+
+Go to the folder mentioned below,
+
+```
+nginx > sites
+```
+
+and change the default names `*.conf`:
+
+```
+- app.conf.example > app.conf
+- laravel.conf.example > api-starter-lumen.conf
+- symfony.conf.example > symfony.conf
+```
+
+Then update the `api-starter-lumen.conf` file like below,
+
+```
+server_name laravel.test;
+root /var/www/laravel/public;
+```
+
+to,
+
+```
+server_name api-starter-lumen.test;
+root /var/www/API-starter-lumen/public;
+```
+
+**Step 8** - Run the `Docker` containers
 
 ```
 docker-compose up -d nginx postgres pgadmin
 ```
 
-**Step 8** - Execute the `postgres` container and setup the database
+**Step 9** - Execute the `postgres` container and setup the database
 
 ```
 docker-compose exec postgres bash
@@ -86,32 +116,32 @@ exit
 exit
 ```
 
-**Step 9** - Execute the workspace container
+**Step 10** - Execute the workspace container
 
 ```
 docker-compose exec workspace bash
 ```
 
-**Step 10** - Copy the `.env.example` file to `.env` in
+**Step 11** - Copy the `.env.example` file to `.env` in
 
 ```
 cd API-starter-lumen
 cp .env.example .env
 ```
 
-**Step 11** - Install `Composer`
+**Step 12** - Install `Composer`
 
 ```
 composer install
 ```
 
-**Step 12** - Generate application key (It may not work for Lumen, so put any random string as key in the .env file)
+**Step 13** - Generate application key (It may not work for Lumen, so put any random string as key in the .env file)
 
 ```
 php artisan key:generate
 ```
 
-**Step 13** - Run Migration
+**Step 14** - Run Migration
 
 ```
 php artisan migrate
