@@ -177,4 +177,4 @@ If everything works, then you are good to go.
 
 ## License
 
-The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This Lumen based Starter Kit is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
