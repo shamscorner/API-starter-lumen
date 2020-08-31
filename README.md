@@ -11,6 +11,12 @@ Laravel Lumen is a stunningly fast PHP micro-framework for building web applicat
 
 Documentation for the framework can be found on the [Lumen website](https://lumen.laravel.com/docs).
 
+## Introduction
+
+Lumen based API starter project with user login and registration endpoints, tests, migrations, etc. It has `JSON API specification` supports with the `Test-Driven Development` initials. This project can be used as a starter kit which is in `Lumen 7` for now.
+
+**Follow the below instructions if you want to setup this project with Laradock, otherwise setup as you used to.**
+
 ## Setup
 
 **Step 1** - Clone this project into a directory
@@ -45,60 +51,79 @@ cp env-example .env
 COMPOSE_PATH_SEPARATOR=;
 ```
 
-**Step 5** - Add the Site URL to the `host` file in the local machine
+**Step 5** - Change the PostgreSQL database name (search `postgres` in the .env file inside the `laradock` folder)
+
+```
+POSTGRES_DB=apistarter
+```
+
+**Step 6** - Add the Site URL to the `host` file in the local machine
 
 ```
 127.0.0.1	api-starter-lumen.test
 ```
 
-**Step 6** - Run the `Docker` containers
+**Step 7** - Run the `Docker` containers
 
 ```
-docker-compose up -d nginx mysql phpmyadmin
+docker-compose up -d nginx postgres pgadmin
 ```
 
-**Step 7** - Create database
-
-Visit `http://localhost:8080` and login with the following credentials,
+**Step 8** - Execute the `postgres` container and setup the database
 
 ```
-server: mysql
-username: root
-password: root
+docker-compose exec postgres bash
+
+Then,
+psql -U default
+create database apistarter;
 ```
 
-**Step 8** - Execute the workspace container
+and then exit
+
+```
+exit
+exit
+```
+
+**Step 9** - Execute the workspace container
 
 ```
 docker-compose exec workspace bash
 ```
 
-**Step 9** - Copy the `.env.example` file to `.env` in
+**Step 10** - Copy the `.env.example` file to `.env` in
 
 ```
 cd API-starter-lumen
 cp .env.example .env
 ```
 
-**Step 10** - Install `Composer`
+**Step 11** - Install `Composer`
 
 ```
 composer install
 ```
 
-**Step 11** - Generate application key (It may not work for Lumen, so put any random string as key in the .env file)
+**Step 12** - Generate application key (It may not work for Lumen, so put any random string as key in the .env file)
 
 ```
 php artisan key:generate
 ```
 
-**Step 12** - Run Migration
+**Step 13** - Run Migration
 
 ```
 php artisan migrate
 ```
 
-Happy Coding :)
+Happy Coding 😃
+
+## To setup the development environment
+
+```
+php artisan dev:setup
+```
 
 ## To Test if working or not
 
@@ -162,12 +187,6 @@ response (token will be different),
 ```
 
 If everything works, then you are good to go.
-
-## To setup the development environment
-
-```
-php artisan dev:setup
-```
 
 ## License
 
