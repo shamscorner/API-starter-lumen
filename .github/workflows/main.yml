@@ -1,4 +1,4 @@
-name: LinkFinder Push Test
+name: API Base Push Test
 
 on:
   push:
