@@ -57,13 +57,43 @@ COMPOSE_PATH_SEPARATOR=;
 127.0.0.1	api-starter-lumen.test
 ```
 
-**Step 6** - Run the `Docker` containers
+**Step 6** - Setup `nginx` server
+
+Go to the folder mentioned below,
+
+```
+nginx > sites
+```
+
+and change the default names `*.conf`:
+
+```
+- app.conf.example > app.conf
+- laravel.conf.example > api-starter-lumen.conf
+- symfony.conf.example > symfony.conf
+```
+
+Then update the `api-starter-lumen.conf` file like below,
+
+```
+server_name laravel.test;
+root /var/www/laravel/public;
+```
+
+to,
+
+```
+server_name api-starter-lumen.test;
+root /var/www/API-starter-lumen/public;
+```
+
+**Step 7** - Run the `Docker` containers
 
 ```
 docker-compose up -d nginx mysql phpmyadmin
 ```
 
-**Step 7** - Create database
+**Step 8** - Create database
 
 Visit `http://localhost:8080` and login with the following credentials,
 
@@ -73,32 +103,32 @@ username: root
 password: root
 ```
 
-**Step 8** - Execute the workspace container
+**Step 9** - Execute the workspace container
 
 ```
 docker-compose exec workspace bash
 ```
 
-**Step 9** - Copy the `.env.example` file to `.env` in
+**Step 10** - Copy the `.env.example` file to `.env` in
 
 ```
 cd API-starter-lumen
 cp .env.example .env
 ```
 
-**Step 10** - Install `Composer`
+**Step 11** - Install `Composer`
 
 ```
 composer install
 ```
 
-**Step 11** - Generate application key (It may not work for Lumen, so put any random string as key in the .env file)
+**Step 12** - Generate application key (It may not work for Lumen, so put any random string as key in the .env file)
 
 ```
 php artisan key:generate
 ```
 
-**Step 12** - Run Migration
+**Step 13** - Run Migration
 
 ```
 php artisan migrate
