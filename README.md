@@ -15,7 +15,7 @@ Documentation for the framework can be found on the [Lumen website](https://lume
 
 Lumen based API starter project with user login and registration endpoints, tests, migrations, etc. It has `JSON API specification` supports with the `Test-Driven Development` initials. This project can be used as a starter kit which is in `Lumen 7` for now.
 
-![Project Introduction](https://github.com/shamscorner/images/blob/master/lumen-api-intro.png)
+![Project Introduction](https://raw.githubusercontent.com/shamscorner/images/main/lumen-api-intro.png)
 
 **Follow the below instructions if you want to setup this project with Laradock, otherwise setup as you used to.**
 
